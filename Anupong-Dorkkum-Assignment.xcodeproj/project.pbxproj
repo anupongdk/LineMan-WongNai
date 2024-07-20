@@ -29,6 +29,7 @@
 		F1CBE8BF2C4C0FE100983EE8 /* AppDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8BE2C4C0FE100983EE8 /* AppDesignSystem.swift */; };
 		F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */; };
 		F1CBE8C52C4C270900983EE8 /* DesignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8C42C4C270900983EE8 /* DesignLabel.swift */; };
+		F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F1CBE8BE2C4C0FE100983EE8 /* AppDesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDesignSystem.swift; sourceTree = "<group>"; };
 		F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		F1CBE8C42C4C270900983EE8 /* DesignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLabel.swift; sourceTree = "<group>"; };
+		F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		F1CBE8AC2C4C086400983EE8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F1CBE8C62C4C2DAB00983EE8 /* Extension */,
 				F1CBE8C02C4C183E00983EE8 /* Asset */,
 				F1CBE8BD2C4C0FB500983EE8 /* Theme */,
 				F1CBE8B02C4C08C800983EE8 /* AppAPI */,
@@ -224,6 +227,14 @@
 				F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		F1CBE8C62C4C2DAB00983EE8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +389,7 @@
 				F1CBE8C52C4C270900983EE8 /* DesignLabel.swift in Sources */,
 				F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */,
 				F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */,
+				F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
