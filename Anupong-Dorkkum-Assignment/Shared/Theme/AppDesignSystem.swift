@@ -8,15 +8,16 @@
 import UIKit
 import Foundation
 
-public extension UIFont {
+ extension UIFont {
     
     struct DesignSystem {
         static let bold = "Roboto-Bold"
         
-        public static let headerTitleFont = UIFont(name: bold, size: 16)
-        public static let coinCellTitleFont = UIFont(name: bold, size: 16)
-        public static let coinCellNameFont = UIFont(name: bold, size: 14)
-        public static let coinCellPriceFont = UIFont(name: bold, size: 14)
+         static let bigHeader = UIFont(name: bold, size: 18)
+         static let title = UIFont(name: bold, size: 16)
+         static let description = UIFont(name: bold, size: 14)
+         static let small = UIFont(name: bold, size: 12)
+         
     }
 }
 
@@ -46,6 +47,11 @@ extension UIColor {
         
         // app cell shadow = #0000001A;
         static let appCellShadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        
+        // app Not found title = #333333;
+        static let appNotFoundTitleColor = UIColor(red: 51, green: 51, blue: 51, alpha: 1)
+
+        
         
     }
     
