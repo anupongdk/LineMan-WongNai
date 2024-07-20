@@ -27,6 +27,7 @@
 		F1CBE8BB2C4C0A5600983EE8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8B72C4C0A5600983EE8 /* APIManager.swift */; };
 		F1CBE8BC2C4C0A5600983EE8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8B82C4C0A5600983EE8 /* ViewModel.swift */; };
 		F1CBE8BF2C4C0FE100983EE8 /* AppDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8BE2C4C0FE100983EE8 /* AppDesignSystem.swift */; };
+		F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F1CBE8B72C4C0A5600983EE8 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F1CBE8B82C4C0A5600983EE8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F1CBE8BE2C4C0FE100983EE8 /* AppDesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDesignSystem.swift; sourceTree = "<group>"; };
+		F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		F1CBE8AC2C4C086400983EE8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F1CBE8C02C4C183E00983EE8 /* Asset */,
 				F1CBE8BD2C4C0FB500983EE8 /* Theme */,
 				F1CBE8B02C4C08C800983EE8 /* AppAPI */,
 				F1CBE8AD2C4C087000983EE8 /* Config */,
@@ -202,6 +205,22 @@
 				F1CBE8BE2C4C0FE100983EE8 /* AppDesignSystem.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		F1CBE8C02C4C183E00983EE8 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				F1CBE8C12C4C194000983EE8 /* font */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		F1CBE8C12C4C194000983EE8 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +338,7 @@
 			files = (
 				F1CBE87D2C4C075300983EE8 /* Assets.xcassets in Resources */,
 				F1CBE8802C4C075300983EE8 /* Base in Resources */,
+				F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */,
 				F1CBE87B2C4C075100983EE8 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

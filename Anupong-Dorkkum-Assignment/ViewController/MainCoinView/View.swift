@@ -60,6 +60,8 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    
 
     // MARK: UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -80,7 +82,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coin = viewModel.coin(at: indexPath.row)
+       // let coin = viewModel.coin(at: indexPath.row)
        // let detailVC = CoinDetailView(uuid: coin.uuid)
        // navigationController?.pushViewController(detailVC, animated: true)
     }
