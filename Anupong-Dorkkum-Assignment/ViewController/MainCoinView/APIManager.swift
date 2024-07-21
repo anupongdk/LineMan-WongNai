@@ -2,7 +2,6 @@
 //  APIManager.swift
 //  SharedAPIManager
 //
-//  Created by Aman on 04/08/23.
 //
 
 import UIKit
@@ -20,7 +19,4 @@ class MainPageAPIManager {
         provider.request(.search(keyword: keyword), completion: completion)
     }
 
-    func getCoinDetail(uuid: String, completion: @escaping (Result<Response, MoyaError>) -> Void) {
-        provider.request(.coinDetail(uuid: uuid), completion: completion)
-    }
 }

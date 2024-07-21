@@ -1,5 +1,4 @@
 //
-//  Created by Aman on 27/07/23.
 //
 
 import UIKit
@@ -87,9 +86,10 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let coin = viewModel.coin(at: indexPath.row)
-       // let detailVC = CoinDetailView(uuid: coin.uuid)
-       // navigationController?.pushViewController(detailVC, animated: true)
+        
+        let coin = viewModel.coin(at: indexPath.row)
+        navigateToDetail(uuid: coin.uuid)
+        
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
