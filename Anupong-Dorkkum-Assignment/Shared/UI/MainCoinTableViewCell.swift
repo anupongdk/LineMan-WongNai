@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SDWebImageSVGCoder
 
 class MainCoinTableViewCell: UITableViewCell {
 
@@ -36,6 +37,13 @@ class MainCoinTableViewCell: UITableViewCell {
         label.setLabel(type: .cellCoinName)
         return label
     }()
+    
+    private let coinPriceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setLabel(type: .cellPrice)
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -53,6 +61,7 @@ class MainCoinTableViewCell: UITableViewCell {
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(coinNameLabel)
+        contentView.addSubview(coinPriceLabel)
         
         // Set constraints for the card view
         NSLayoutConstraint.activate([
@@ -81,11 +90,18 @@ class MainCoinTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             coinNameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             coinNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6), // Vertical space from iconImageView
-            coinNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
+            //coinNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
+        ])
+        
+        NSLayoutConstraint.activate([
+            coinPriceLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor,constant: -8),
+            coinPriceLabel.bottomAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: 0), // Vertical space from iconImageView
+           // coinPriceLabel.leadingAnchor.constraint(equalTo: coinNameLabel.trailingAnchor, constant: -8)
         ])
     }
     
     func configure(with coin: Coin) {
+        //sd_setImage as
         iconImageView.sd_setImage(with: URL(string: coin.iconURL),placeholderImage:UIImage.DesignSystem.placeHolder )
         titleLabel.text = coin.name
         coinNameLabel.text = coin.symbol

@@ -11,6 +11,8 @@
 		F10554AE2C4CFC3B00ABFF74 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10554AD2C4CFC3B00ABFF74 /* CardView.swift */; };
 		F10554B12C4D02D300ABFF74 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F10554B02C4D02D300ABFF74 /* SDWebImage */; };
 		F10554B32C4D02D300ABFF74 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F10554B22C4D02D300ABFF74 /* SDWebImageMapKit */; };
+		F10554B52C4D188B00ABFF74 /* Double-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10554B42C4D188B00ABFF74 /* Double-Extension.swift */; };
+		F10554B82C4D1F0B00ABFF74 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F10554B72C4D1F0B00ABFF74 /* SDWebImageSVGCoder */; };
 		F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8732C4C075100983EE8 /* AppDelegate.swift */; };
 		F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */; };
 		F1CBE8782C4C075100983EE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8772C4C075100983EE8 /* ViewController.swift */; };
@@ -56,6 +58,7 @@
 /* Begin PBXFileReference section */
 		F10554AB2C4CF60800ABFF74 /* MainCoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoinTableViewCell.swift; sourceTree = "<group>"; };
 		F10554AD2C4CFC3B00ABFF74 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F10554B42C4D188B00ABFF74 /* Double-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-Extension.swift"; sourceTree = "<group>"; };
 		F1CBE8702C4C075100983EE8 /* Anupong-Dorkkum-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anupong-Dorkkum-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CBE8732C4C075100983EE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 				F1CBE8A72C4C07F500983EE8 /* Moya in Frameworks */,
 				F1CBE8A52C4C07F500983EE8 /* CombineMoya in Frameworks */,
 				F1CBE8AB2C4C07F500983EE8 /* RxMoya in Frameworks */,
+				F10554B82C4D1F0B00ABFF74 /* SDWebImageSVGCoder in Frameworks */,
 				F1CBE8A92C4C07F500983EE8 /* ReactiveMoya in Frameworks */,
 				F10554B32C4D02D300ABFF74 /* SDWebImageMapKit in Frameworks */,
 				F10554B12C4D02D300ABFF74 /* SDWebImage in Frameworks */,
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */,
+				F10554B42C4D188B00ABFF74 /* Double-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				F1CBE8AA2C4C07F500983EE8 /* RxMoya */,
 				F10554B02C4D02D300ABFF74 /* SDWebImage */,
 				F10554B22C4D02D300ABFF74 /* SDWebImageMapKit */,
+				F10554B72C4D1F0B00ABFF74 /* SDWebImageSVGCoder */,
 			);
 			productName = "Anupong-Dorkkum-Assignment";
 			productReference = F1CBE8702C4C075100983EE8 /* Anupong-Dorkkum-Assignment.app */;
@@ -354,6 +360,7 @@
 			packageReferences = (
 				F1CBE8A32C4C07F500983EE8 /* XCRemoteSwiftPackageReference "Moya" */,
 				F10554AF2C4D02D300ABFF74 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F10554B62C4D1F0B00ABFF74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 			);
 			productRefGroup = F1CBE8712C4C075100983EE8 /* Products */;
 			projectDirPath = "";
@@ -413,6 +420,7 @@
 				F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */,
 				F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */,
 				F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */,
+				F10554B52C4D188B00ABFF74 /* Double-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +771,14 @@
 				minimumVersion = 5.19.4;
 			};
 		};
+		F10554B62C4D1F0B00ABFF74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 		F1CBE8A32C4C07F500983EE8 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -783,6 +799,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F10554AF2C4D02D300ABFF74 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		F10554B72C4D1F0B00ABFF74 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F10554B62C4D1F0B00ABFF74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
 		};
 		F1CBE8A42C4C07F500983EE8 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
