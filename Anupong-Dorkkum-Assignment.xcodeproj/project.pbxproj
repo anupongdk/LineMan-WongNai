@@ -13,6 +13,8 @@
 		F10554B32C4D02D300ABFF74 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F10554B22C4D02D300ABFF74 /* SDWebImageMapKit */; };
 		F10554B52C4D188B00ABFF74 /* Double-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10554B42C4D188B00ABFF74 /* Double-Extension.swift */; };
 		F10554B82C4D1F0B00ABFF74 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F10554B72C4D1F0B00ABFF74 /* SDWebImageSVGCoder */; };
+		F10554BA2C4D24DD00ABFF74 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10554B92C4D24DD00ABFF74 /* String-Extension.swift */; };
+		F10554BC2C4D297700ABFF74 /* ArrowLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10554BB2C4D297700ABFF74 /* ArrowLabelView.swift */; };
 		F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8732C4C075100983EE8 /* AppDelegate.swift */; };
 		F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */; };
 		F1CBE8782C4C075100983EE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8772C4C075100983EE8 /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 		F10554AB2C4CF60800ABFF74 /* MainCoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoinTableViewCell.swift; sourceTree = "<group>"; };
 		F10554AD2C4CFC3B00ABFF74 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F10554B42C4D188B00ABFF74 /* Double-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-Extension.swift"; sourceTree = "<group>"; };
+		F10554B92C4D24DD00ABFF74 /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		F10554BB2C4D297700ABFF74 /* ArrowLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowLabelView.swift; sourceTree = "<group>"; };
 		F1CBE8702C4C075100983EE8 /* Anupong-Dorkkum-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anupong-Dorkkum-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CBE8732C4C075100983EE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			children = (
 				F10554AB2C4CF60800ABFF74 /* MainCoinTableViewCell.swift */,
 				F10554AD2C4CFC3B00ABFF74 /* CardView.swift */,
+				F10554BB2C4D297700ABFF74 /* ArrowLabelView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			children = (
 				F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */,
 				F10554B42C4D188B00ABFF74 /* Double-Extension.swift */,
+				F10554B92C4D24DD00ABFF74 /* String-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 			files = (
 				F10554AE2C4CFC3B00ABFF74 /* CardView.swift in Sources */,
 				F1CBE8BF2C4C0FE100983EE8 /* AppDesignSystem.swift in Sources */,
+				F10554BA2C4D24DD00ABFF74 /* String-Extension.swift in Sources */,
 				F1CBE8B22C4C08DF00983EE8 /* AppAPI.swift in Sources */,
 				F1CBE8B92C4C0A5600983EE8 /* View.swift in Sources */,
 				F1CBE8BA2C4C0A5600983EE8 /* Model.swift in Sources */,
@@ -419,6 +426,7 @@
 				F1CBE8C52C4C270900983EE8 /* DesignLabel.swift in Sources */,
 				F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */,
 				F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */,
+				F10554BC2C4D297700ABFF74 /* ArrowLabelView.swift in Sources */,
 				F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */,
 				F10554B52C4D188B00ABFF74 /* Double-Extension.swift in Sources */,
 			);

@@ -44,6 +44,13 @@ class MainCoinTableViewCell: UITableViewCell {
         label.setLabel(type: .cellPrice)
         return label
     }()
+    
+    //add coinPriceLabel as ArrowLabelView
+    private let arrowLabelView: ArrowLabelView = {
+        let view = ArrowLabelView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,12 +63,17 @@ class MainCoinTableViewCell: UITableViewCell {
     }
 
     private func setupCell() {
+        
+        //set selection style
+        self.selectionStyle = .none
+        
         // Add the card view to the content view
         contentView.addSubview(cardView)
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(coinNameLabel)
         contentView.addSubview(coinPriceLabel)
+        contentView.addSubview(arrowLabelView)
         
         // Set constraints for the card view
         NSLayoutConstraint.activate([
@@ -83,20 +95,26 @@ class MainCoinTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
             titleLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16), // Vertical space from iconImageView
-            titleLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
+           // titleLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
         ])
         
         // Set constraints for the title label
         NSLayoutConstraint.activate([
             coinNameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             coinNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6), // Vertical space from iconImageView
-            //coinNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
+            coinNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: cardView.trailingAnchor, constant: -8)
         ])
         
         NSLayoutConstraint.activate([
             coinPriceLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor,constant: -8),
-            coinPriceLabel.bottomAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: 0), // Vertical space from iconImageView
-           // coinPriceLabel.leadingAnchor.constraint(equalTo: coinNameLabel.trailingAnchor, constant: -8)
+            coinPriceLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0), // Vertical space from iconImageView
+            coinPriceLabel.leadingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor, constant: 8)
+        ])
+        
+        NSLayoutConstraint.activate([
+            arrowLabelView.trailingAnchor.constraint(equalTo: coinPriceLabel.trailingAnchor,constant: -12),
+            arrowLabelView.centerYAnchor.constraint(equalTo: coinNameLabel.centerYAnchor),
+           // arrowLabelView.leadingAnchor.constraint(greaterThanOrEqualTo: coinNameLabel.trailingAnchor, constant: 0)
         ])
     }
     
@@ -105,5 +123,9 @@ class MainCoinTableViewCell: UITableViewCell {
         iconImageView.sd_setImage(with: URL(string: coin.iconURL),placeholderImage:UIImage.DesignSystem.placeHolder )
         titleLabel.text = coin.name
         coinNameLabel.text = coin.symbol
+        coinPriceLabel.text = coin.price.currencyFormat()
+        arrowLabelView.updateView(with: Double(coin.change) ?? 0)
+        
+        
         }
 }
