@@ -6,8 +6,9 @@
 //
 
 import Foundation
-
 import UIKit
+import SDWebImage
+import SDWebImageSVGCoder
 
 class DetailView: UIViewController {
     let viewModel: DetailViewModel
@@ -19,6 +20,7 @@ class DetailView: UIViewController {
     @IBOutlet weak var lblCoinPriceValue: UILabel!
     @IBOutlet weak var lblCoinMarketCap: UILabel!
     @IBOutlet weak var lblCoinMarketCapValue: UILabel!
+    @IBOutlet weak var tvCoinDetail: UITextView!
     
     
     
@@ -37,16 +39,38 @@ class DetailView: UIViewController {
         view.backgroundColor = .white
         setupUI()
         bindViewModel()
+        viewModel.fetchDetail()
         
     }
     
     func bindViewModel() {
         viewModel.onDetailLoaded = { [weak self] in
             // Update the UI here
+            self?.updateUI(state: .loaded)
         }
         
         viewModel.onError = { [weak self] error in
             // Handle the error here
+            self?.updateUI(state: .error)
+        }
+    }
+    
+    func updateUI(state:ViewState){
+        switch state {
+        case .loading:
+            break
+        case .loaded:
+            // Update the UI here
+            lblCoinName.text = viewModel.detailData?.name
+            lblCoinName.textColor = UIColor.init(hex: viewModel.detailData?.color ?? "")
+            lblCoinSymbol.text = viewModel.detailData?.symbol.addParentheses()
+            lblCoinPriceValue.text = viewModel.detailData?.price.currencyFormat(maxFractionDigits: 2,currencySymbol: "$ ")
+            lblCoinMarketCapValue.text = viewModel.detailData?.marketCap.addSuffix(currencySymbol: "$ ")
+            tvCoinDetail.text = viewModel.detailData?.description
+            imageCoin.sd_setImage(with: URL(string: viewModel.detailData?.iconURL ?? ""), placeholderImage: UIImage.DesignSystem.placeHolder)
+            
+        case .error:
+            break
         }
     }
     
@@ -68,6 +92,25 @@ class DetailView: UIViewController {
             closeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
         
+        lblCoinName.setLabel(type: .detailTitle)
+        lblCoinSymbol.setLabel(type: .detailCoinNickName)
+        lblCoinPrice.setLabel(type: .detailCoinPrice)
+        lblCoinPriceValue.setLabel(type: .detailCoinValue)
+        lblCoinMarketCap.setLabel(type: .detailCoinPrice)
+        lblCoinMarketCapValue.setLabel(type: .detailCoinValue)
+        
+        tvCoinDetail.textColor = UIColor.DesignSystem.appGreyColor
+        tvCoinDetail.font = UIFont.DesignSystem.description
+        tvCoinDetail.isEditable = false
+        
+        
+        lblCoinName.text = ""
+        lblCoinSymbol.text = ""
+        lblCoinPrice.text = "PRICE"
+        lblCoinPriceValue.text = ""
+        lblCoinMarketCap.text = "MARKET CAP"
+        lblCoinMarketCapValue.text = ""
+        tvCoinDetail.text = ""
         
         
         
@@ -80,3 +123,5 @@ class DetailView: UIViewController {
         navigeteBack()
     }
 }
+
+

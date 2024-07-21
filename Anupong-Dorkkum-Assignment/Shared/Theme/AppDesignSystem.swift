@@ -70,7 +70,11 @@ extension UIColor {
             hexFormatted.remove(at: hexFormatted.startIndex)
         }
 
-        assert(hexFormatted.count == 6, "Invalid hex code used.")
+        guard hexFormatted.count == 6, hexFormatted.range(of: "[^0-9A-F]", options: .regularExpression) == nil else {
+                    print("Invalid hex code used. Defaulting to black color.")
+                    self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: CGFloat(alpha)) // Default to black
+                    return
+                }
 
         var rgbValue: UInt64 = 0
         Scanner(string: hexFormatted).scanHexInt64(&rgbValue)

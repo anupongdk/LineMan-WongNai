@@ -16,6 +16,7 @@
                 <outlet property="lblCoinPrice" destination="WjK-kI-zxZ" id="9aH-AG-Nkz"/>
                 <outlet property="lblCoinPriceValue" destination="Yo1-0e-GNU" id="EG2-db-mFR"/>
                 <outlet property="lblCoinSymbol" destination="AtJ-CA-21Q" id="5vq-H9-1tJ"/>
+                <outlet property="tvCoinDetail" destination="44p-6D-Xff" id="1G5-8e-JWF"/>
                 <outlet property="view" destination="iN0-l3-epB" id="RDc-hy-WqA"/>
             </connections>
         </placeholder>
@@ -68,9 +69,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="44p-6D-Xff">
-                    <rect key="frame" x="0.0" y="123" width="393" height="669"/>
+                    <rect key="frame" x="24" y="123" width="345" height="669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -90,21 +90,22 @@
                 <constraint firstItem="apM-39-daX" firstAttribute="top" secondItem="WjK-kI-zxZ" secondAttribute="bottom" constant="6" id="5M1-Zs-C8s"/>
                 <constraint firstItem="gBP-Jq-KnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="73C-5b-emf"/>
                 <constraint firstAttribute="top" secondItem="YU1-bO-EOk" secondAttribute="top" constant="-32" id="9IT-NI-tlb"/>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="AtJ-CA-21Q" secondAttribute="trailing" constant="215" id="Awh-sp-Wsc"/>
                 <constraint firstAttribute="bottom" secondItem="Vyz-w5-288" secondAttribute="bottom" id="FFr-VL-OQb"/>
                 <constraint firstItem="44p-6D-Xff" firstAttribute="top" secondItem="apM-39-daX" secondAttribute="bottom" constant="16" id="HKI-6h-fGG"/>
                 <constraint firstItem="YU1-bO-EOk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="HXh-Cc-XbW"/>
                 <constraint firstItem="WjK-kI-zxZ" firstAttribute="top" secondItem="gBP-Jq-KnW" secondAttribute="bottom" constant="6" id="Jch-1p-d0H"/>
                 <constraint firstItem="vsm-bS-kzd" firstAttribute="centerY" secondItem="apM-39-daX" secondAttribute="centerY" id="NCz-6O-460"/>
                 <constraint firstItem="Yo1-0e-GNU" firstAttribute="centerY" secondItem="WjK-kI-zxZ" secondAttribute="centerY" id="OXg-6A-gVq"/>
-                <constraint firstAttribute="trailing" secondItem="44p-6D-Xff" secondAttribute="trailing" id="Pr7-Pl-xr3"/>
+                <constraint firstAttribute="trailing" secondItem="44p-6D-Xff" secondAttribute="trailing" constant="24" id="Pr7-Pl-xr3"/>
                 <constraint firstItem="Vyz-w5-288" firstAttribute="top" secondItem="44p-6D-Xff" secondAttribute="bottom" id="R5Z-se-dcT"/>
                 <constraint firstAttribute="trailing" secondItem="Vyz-w5-288" secondAttribute="trailing" id="VQx-dL-Ser"/>
                 <constraint firstItem="gBP-Jq-KnW" firstAttribute="leading" secondItem="YU1-bO-EOk" secondAttribute="trailing" constant="16" id="Vhi-le-QLh"/>
                 <constraint firstItem="AtJ-CA-21Q" firstAttribute="centerY" secondItem="gBP-Jq-KnW" secondAttribute="centerY" id="diY-by-g2d"/>
                 <constraint firstItem="apM-39-daX" firstAttribute="leading" secondItem="WjK-kI-zxZ" secondAttribute="leading" id="ftR-j3-sNN"/>
-                <constraint firstItem="44p-6D-Xff" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gHt-XW-6xh"/>
+                <constraint firstItem="44p-6D-Xff" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="gHt-XW-6xh"/>
                 <constraint firstItem="vsm-bS-kzd" firstAttribute="leading" secondItem="apM-39-daX" secondAttribute="trailing" constant="8" id="n1c-Xh-wJA"/>
-                <constraint firstItem="AtJ-CA-21Q" firstAttribute="leading" secondItem="gBP-Jq-KnW" secondAttribute="trailing" constant="4" id="poY-vM-7Of"/>
+                <constraint firstItem="AtJ-CA-21Q" firstAttribute="leading" secondItem="gBP-Jq-KnW" secondAttribute="trailing" priority="900" constant="4" id="poY-vM-7Of"/>
                 <constraint firstItem="Yo1-0e-GNU" firstAttribute="leading" secondItem="WjK-kI-zxZ" secondAttribute="trailing" constant="8" id="yEj-3I-c9b"/>
                 <constraint firstItem="Vyz-w5-288" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yVS-gv-3ja"/>
             </constraints>

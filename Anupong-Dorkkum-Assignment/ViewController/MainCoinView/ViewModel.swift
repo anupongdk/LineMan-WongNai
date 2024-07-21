@@ -59,4 +59,16 @@ class MainPageViewModel {
             }
         }
     }
+    
+    // function calculate index is match for position 5, 10, 20, 40, 80, 160, ...
+    func isPowIndex(index: Int) -> Bool {
+        var position = 5
+        while position <= index {
+            if position == index {
+                return true
+            }
+            position *= 2
+        }
+        return false
+    }
 }

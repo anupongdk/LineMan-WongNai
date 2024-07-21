@@ -18,6 +18,7 @@ extension UILabel {
         case detailTitle
         case detailCoinNickName
         case detailCoinPrice
+        case detailCoinValue
         case notFoundTitle
         case notFoundDescription
     }
@@ -51,6 +52,9 @@ extension UILabel {
         case .detailCoinPrice:
             self.font = UIFont.DesignSystem.description
             self.textColor = UIColor.DesignSystem.appBlackColor
+        case .detailCoinValue:
+            self.font = UIFont.DesignSystem.description
+            self.textColor = UIColor.DesignSystem.appNotFoundTitleColor
         case .notFoundTitle:
             self.font = UIFont.DesignSystem.bigHeader
             self.textColor = UIColor.DesignSystem.appNotFoundTitleColor

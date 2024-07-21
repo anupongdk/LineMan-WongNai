@@ -12,8 +12,8 @@ import UIKit
 extension MainPageView {
     
     func navigateToDetail(uuid: String) {
-       
-        let vm = DetailViewModel(uuid:uuid)
+       let apiManager = DetailAPIManager()
+        let vm = DetailViewModel(uuid:uuid,apiManager:apiManager)
         let detailVC = DetailView(viewModel: vm)
 
         detailVC.modalPresentationStyle = .pageSheet
