@@ -11,6 +11,7 @@ extension UILabel {
     enum LabelType {
         case tableTitle
         case cellTitle
+        case cellCoinName
         case cellPrice
         case cellRateUp
         case cellRateDown
@@ -29,6 +30,9 @@ extension UILabel {
         case .cellTitle:
             self.font = UIFont.DesignSystem.title
             self.textColor = UIColor.DesignSystem.appBlackColor
+        case .cellCoinName:
+            self.font = UIFont.DesignSystem.description
+            self.textColor = UIColor.DesignSystem.appGreyColor
         case .cellPrice:
             self.font = UIFont.DesignSystem.description
             self.textColor = UIColor.DesignSystem.appBlackColor

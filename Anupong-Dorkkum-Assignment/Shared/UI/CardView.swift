@@ -25,7 +25,6 @@ class CardView: UIView {
 
         // Set corner radius
         self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
 
         // Set shadow
         self.layer.shadowColor = UIColor.DesignSystem.appCellShadowColor.cgColor

@@ -79,10 +79,10 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as? MainCoinTableViewCell ?? UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as? MainCoinTableViewCell
         let coin = viewModel.coin(at: indexPath.row)
-       // cell.textLabel?.text = coin.name
-        return cell
+        cell?.configure(with: coin)
+        return cell ?? UITableViewCell()
     }
 
     // MARK: UITableViewDelegate

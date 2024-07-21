@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MainCoinTableViewCell: UITableViewCell {
 
@@ -28,6 +29,13 @@ class MainCoinTableViewCell: UITableViewCell {
         label.setLabel(type: .cellTitle)
         return label
     }()
+    
+    private let coinNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setLabel(type: .cellCoinName)
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,6 +52,7 @@ class MainCoinTableViewCell: UITableViewCell {
         contentView.addSubview(cardView)
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(coinNameLabel)
         
         // Set constraints for the card view
         NSLayoutConstraint.activate([
@@ -58,18 +67,27 @@ class MainCoinTableViewCell: UITableViewCell {
             iconImageView.widthAnchor.constraint(equalToConstant: 40),
             iconImageView.heightAnchor.constraint(equalToConstant: 40),
             iconImageView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8),
-            iconImageView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 21) // Top from card
+            iconImageView.centerYAnchor.constraint(equalTo: cardView.centerYAnchor)
         ])
         
         // Set constraints for the title label
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-            titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 16), // Vertical space from iconImageView
+            titleLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16), // Vertical space from iconImageView
             titleLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
+        ])
+        
+        // Set constraints for the title label
+        NSLayoutConstraint.activate([
+            coinNameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            coinNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6), // Vertical space from iconImageView
+            coinNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8)
         ])
     }
     
     func configure(with coin: Coin) {
-       //
+        iconImageView.sd_setImage(with: URL(string: coin.iconURL),placeholderImage:UIImage.DesignSystem.placeHolder )
+        titleLabel.text = coin.name
+        coinNameLabel.text = coin.symbol
         }
 }
