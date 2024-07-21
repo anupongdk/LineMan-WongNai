@@ -29,7 +29,8 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        tableView.separatorStyle = .none
+        tableView.register(MainCoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -72,11 +73,15 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfCoins
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as? MainCoinTableViewCell ?? UITableViewCell()
         let coin = viewModel.coin(at: indexPath.row)
-        cell.textLabel?.text = coin.name
+       // cell.textLabel?.text = coin.name
         return cell
     }
 
