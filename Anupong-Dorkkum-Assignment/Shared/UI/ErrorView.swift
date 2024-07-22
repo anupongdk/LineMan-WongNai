@@ -20,8 +20,16 @@ class ErrorView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.DesignSystem.title
-        label.textColor = UIColor.DesignSystem.appGreyColor
+        label.setLabel(type: .notFoundTitle)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.setLabel(type: .notFoundDescription)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -53,9 +61,11 @@ class ErrorView: UIView {
     private func setupView() {
         addSubview(titleLabel)
         addSubview(button)
+        addSubview(descriptionLabel)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Center the label in the view
         NSLayoutConstraint.activate([
@@ -68,6 +78,11 @@ class ErrorView: UIView {
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
             button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4)
         ])
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4)
+            ])
     }
     
     // MARK: - Actions
@@ -75,6 +90,15 @@ class ErrorView: UIView {
     func configure(with title: String, buttonTitle: String) {
         titleLabel.text = title
         button.setTitle(buttonTitle, for: .normal)
+        descriptionLabel.isHidden = true
+        button.isHidden = false
+    }
+    
+    func configure(with title: String, description: String) {
+        titleLabel.text = title
+        descriptionLabel.text = description
+        button.isHidden = true
+        descriptionLabel.isHidden = false
     }
     
     @objc private func didTapButton() {

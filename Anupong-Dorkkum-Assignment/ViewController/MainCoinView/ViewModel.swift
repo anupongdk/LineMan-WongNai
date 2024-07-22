@@ -8,6 +8,7 @@ class MainPageViewModel {
     private var coins: [Coin] = []
     private let limitedCoinPerPage = 10
     private var isLoading = false
+    private var isSearching = false
 
     var onCoinsUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
@@ -20,9 +21,14 @@ class MainPageViewModel {
     func coin(at index: Int) -> Coin {
         return coins[index]
     }
+    
+    func resetData() {
+        coins.removeAll()
+        isSearching = false
+    }
 
     func fetchCoins() {
-        guard !isLoading else { return }
+        guard !isLoading && !isSearching else { return }
         isLoading = true
         apiManager.getCoins(limit: limitedCoinPerPage, offset: numberOfCoins) { [weak self] result in
             self?.isLoading = false
@@ -43,7 +49,7 @@ class MainPageViewModel {
 
     func searchCoins(keyword: String) {
         apiManager.cancelAllRequests()
-        
+        isSearching = true
         apiManager.searchCoins(keyword: keyword) { [weak self] result in
             self?.isLoading = false
             switch result {
@@ -57,6 +63,7 @@ class MainPageViewModel {
                     self?.onSearchError?()
                 }
             case .failure(let error):
+                self?.coins.removeAll()
                 self?.onSearchError?()
             }
         }

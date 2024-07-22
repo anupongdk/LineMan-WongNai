@@ -7,6 +7,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
     private var viewModel = MainPageViewModel()
     private let searchBar = UISearchBar()
     private let tableView = UITableView()
+    private var errorView: ErrorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,9 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
     // MARK: UI Setup
     private func setupUI() {
+        
+        
+        
         searchBar.delegate = self
         view.addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -38,12 +42,27 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        errorView = ErrorView()
+        errorView?.delegate = self
+        view.addSubview(errorView!)
+        errorView?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            errorView!.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView!.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView!.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView!.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            
+        ])
+        errorView?.configure(with: "Sorry", description: "No result match this keyword")
+        errorView?.isHidden = true
     }
 
     // MARK: ViewModel Binding
     private func bindViewModel() {
         
         viewModel.onCoinsUpdated = { [weak self] in
+            self?.errorView?.isHidden = true
             self?.tableView.reloadData()
         }
         viewModel.onError = {[weak self] error in
@@ -54,7 +73,11 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         
         viewModel.onSearchError = { [weak self] in
             // create popup show error
+            
             self?.tableView.reloadData()
+            // add errorView in tableView
+            self?.errorView?.isHidden = false
+            
         }
     }
     
@@ -70,7 +93,25 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
     // MARK: UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.searchCoins(keyword: searchText)
+        if searchText.isEmpty {
+            viewModel.resetData()
+            viewModel.fetchCoins()
+        }else {
+            viewModel.searchCoins(keyword: searchText)
+        }
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.resetData()
+        viewModel.fetchCoins()
+    }
+    
+    //searchbar click clear button
+    func searchBarShouldClear(_ searchBar: UISearchBar) -> Bool {
+        viewModel.resetData()
+        viewModel.fetchCoins()
+        return true
     }
 
     // MARK: UITableViewDataSource
@@ -105,3 +146,12 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 }
 
 
+extension MainPageView:ErrorViewDelegate {
+    func didTapButton() {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        viewModel.resetData()
+        viewModel.fetchCoins()
+    }
+
+}
