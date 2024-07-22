@@ -14,6 +14,7 @@ class DetailViewModel {
     
     var onDetailLoaded: (() -> Void)?
     var onError: ((Error) -> Void)?
+    var onLoading: (() -> Void)?
     
     init(uuid: String,apiManager:DetailAPIManager) {
         self.uuid = uuid
@@ -22,6 +23,7 @@ class DetailViewModel {
     
     
    func fetchDetail() {
+       self.onLoading?()
         apiManager.getCoinDetail(uuid: uuid) { [weak self] result in
             switch result {
             case .success(let response):

@@ -12,6 +12,7 @@ import SDWebImageSVGCoder
 
 class DetailView: UIViewController {
     let viewModel: DetailViewModel
+    private var errorView: ErrorView?
     
     @IBOutlet weak var imageCoin: UIImageView!
     @IBOutlet weak var lblCoinName: UILabel!
@@ -24,10 +25,8 @@ class DetailView: UIViewController {
     @IBOutlet weak var btnGotoWeb: UIButton!
     
     
-    
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
-        
         super.init(nibName: "DetailView", bundle: nil)
     }
     
@@ -38,6 +37,7 @@ class DetailView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         setupUI()
         bindViewModel()
         viewModel.fetchDetail()
@@ -54,13 +54,21 @@ class DetailView: UIViewController {
             // Handle the error here
             self?.updateUI(state: .error)
         }
+        
+        viewModel.onLoading = { [weak self] in
+            // Show loading indicator
+            self?.updateUI(state: .loading)
+        }
     }
     
     func updateUI(state:ViewState){
         switch state {
         case .loading:
-            break
+            errorView?.isHidden = true
         case .loaded:
+            // show go to website button
+            btnGotoWeb.isHidden = false
+            
             //static Ui
             lblCoinPrice.text = "PRICE"
             lblCoinMarketCap.text = "MARKET CAP"
@@ -75,11 +83,30 @@ class DetailView: UIViewController {
             imageCoin.sd_setImage(with: URL(string: viewModel.detailData?.iconURL ?? ""), placeholderImage: UIImage.DesignSystem.placeHolder)
             
         case .error:
-            break
+            // hide go to website button
+            btnGotoWeb.isHidden = true
+           // add error label middle of view
+            errorView?.isHidden = false
+            
         }
     }
     
     private func setupUI() {
+        
+        errorView = ErrorView()
+        errorView?.delegate = self
+        view.addSubview(errorView!)
+        errorView?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            errorView!.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView!.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView!.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView!.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            
+        ])
+        errorView?.configure(with: "Could Not load data", buttonTitle: "Try again")
+        
+        
         // Create and configure the close button
         let closeButton = UIButton(type: .system)
         closeButton.setImage(UIImage(named: "icClose"), for: .normal)
@@ -120,12 +147,9 @@ class DetailView: UIViewController {
         
         btnGotoWeb.setButton(type: .gotoWebsite)
         btnGotoWeb.setTitle("GO TO WEBSITE", for: .normal)
-        
-        
-        
+
         // create header image
-        
-        
+
     }
     
     @objc private func closeButtonTapped() {
@@ -137,3 +161,9 @@ class DetailView: UIViewController {
 }
 
 
+extension DetailView:ErrorViewDelegate {
+    func didTapButton() {
+        viewModel.fetchDetail()
+        
+    }
+}
