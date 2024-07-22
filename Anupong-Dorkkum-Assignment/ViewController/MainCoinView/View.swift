@@ -136,7 +136,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCoins
+        return viewModel.getNumberOfShowCoins()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,10 +144,19 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as? MainCoinTableViewCell
-        let coin = viewModel.coin(at: indexPath.row)
-        cell?.configure(with: coin)
-        return cell ?? UITableViewCell()
+        let index = indexPath.row
+            if viewModel.isPowIndex(index: index) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendCell", for: indexPath)
+                // Configure your inviteFriendCell
+                return cell
+            } else {
+                // Adjust index to get the correct coin data
+                let adjustedIndex = viewModel.adjustedIndex(for: index)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
+                let coin = viewModel.coin(at: adjustedIndex)
+                // Configure your CoinCell with coin data
+                return cell
+            }
     }
 
     // MARK: UITableViewDelegate

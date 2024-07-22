@@ -17,6 +17,19 @@ class MainPageViewModel {
     var numberOfCoins: Int {
         return coins.count
     }
+    
+    var numberOfCoinsIncludingAdditionalCells: Int {
+        return numberOfCoins + numberOfAdditionalCells()
+    }
+    
+    func getNumberOfShowCoins() -> Int {
+        if isSearching {
+            return coins.count
+        }else {
+            return numberOfCoinsIncludingAdditionalCells
+        }
+    }
+    
 
     func coin(at index: Int) -> Coin {
         return coins[index]
@@ -70,13 +83,33 @@ class MainPageViewModel {
     }
     
     func isPowIndex(index: Int) -> Bool {
-        var position = 5
-        while position <= index {
-            if position == index {
-                return true
-            }
-            position *= 2
-        }
-        return false
-    }
+           var position = 5
+           while position <= index {
+               if position == index {
+                   return true
+               }
+               position *= 2
+           }
+           return false
+       }
+
+       func numberOfAdditionalCells() -> Int {
+           var count = 0
+           var position = 5
+           while position < numberOfCoins + count {
+               count += 1
+               position *= 2
+           }
+           return count
+       }
+
+       func adjustedIndex(for index: Int) -> Int {
+           var adjustedIndex = index
+           var position = 5
+           while position <= index {
+               adjustedIndex -= 1
+               position *= 2
+           }
+           return adjustedIndex
+       }
 }

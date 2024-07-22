@@ -54,6 +54,8 @@
 		F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */; };
 		F1CBE8C52C4C270900983EE8 /* DesignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8C42C4C270900983EE8 /* DesignLabel.swift */; };
 		F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */; };
+		F1D2C2B92C4E608E00F96A25 /* MainInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */; };
+		F1D2C2BA2C4E608E00F96A25 /* MainInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		F1CBE8C22C4C1A5200983EE8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		F1CBE8C42C4C270900983EE8 /* DesignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLabel.swift; sourceTree = "<group>"; };
 		F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-Extension.swift"; sourceTree = "<group>"; };
+		F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInviteTableViewCell.swift; sourceTree = "<group>"; };
+		F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainInviteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				F10554AD2C4CFC3B00ABFF74 /* CardView.swift */,
 				F10554BB2C4D297700ABFF74 /* ArrowLabelView.swift */,
 				F173E9B72C4E383400BBA06E /* ErrorView.swift */,
+				F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */,
+				F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */,
 				F1CBE87B2C4C075100983EE8 /* Base in Resources */,
 				F173E99E2C4D6BB900BBA06E /* DetailView.xib in Resources */,
+				F1D2C2BA2C4E608E00F96A25 /* MainInviteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +501,7 @@
 				F1CBE8BB2C4C0A5600983EE8 /* APIManager.swift in Sources */,
 				F1CBE8BC2C4C0A5600983EE8 /* ViewModel.swift in Sources */,
 				F1CBE8782C4C075100983EE8 /* ViewController.swift in Sources */,
+				F1D2C2B92C4E608E00F96A25 /* MainInviteTableViewCell.swift in Sources */,
 				F173E9B82C4E383400BBA06E /* ErrorView.swift in Sources */,
 				F1CBE8AF2C4C088B00983EE8 /* Config.swift in Sources */,
 				F10554AC2C4CF60800ABFF74 /* MainCoinTableViewCell.swift in Sources */,
