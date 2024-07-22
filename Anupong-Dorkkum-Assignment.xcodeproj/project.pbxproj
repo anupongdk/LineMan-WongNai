@@ -57,6 +57,8 @@
 		F1D2C2B92C4E608E00F96A25 /* MainInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */; };
 		F1D2C2BA2C4E608E00F96A25 /* MainInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */; };
 		F1D2C2BC2C4E72EB00F96A25 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */; };
+		F1D2C2BF2C4E782B00F96A25 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2BD2C4E782B00F96A25 /* RankingTableViewCell.swift */; };
+		F1D2C2C02C4E782B00F96A25 /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2C2BE2C4E782B00F96A25 /* RankingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInviteTableViewCell.swift; sourceTree = "<group>"; };
 		F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainInviteTableViewCell.xib; sourceTree = "<group>"; };
 		F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
+		F1D2C2BD2C4E782B00F96A25 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		F1D2C2BE2C4E782B00F96A25 /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,8 @@
 				F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */,
 				F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */,
 				F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */,
+				F1D2C2BD2C4E782B00F96A25 /* RankingTableViewCell.swift */,
+				F1D2C2BE2C4E782B00F96A25 /* RankingTableViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				F1CBE8802C4C075300983EE8 /* Base in Resources */,
 				F1CBE8C32C4C1A5200983EE8 /* Roboto-Bold.ttf in Resources */,
 				F1CBE87B2C4C075100983EE8 /* Base in Resources */,
+				F1D2C2C02C4E782B00F96A25 /* RankingTableViewCell.xib in Resources */,
 				F173E99E2C4D6BB900BBA06E /* DetailView.xib in Resources */,
 				F1D2C2BA2C4E608E00F96A25 /* MainInviteTableViewCell.xib in Resources */,
 			);
@@ -499,6 +506,7 @@
 				F10554BA2C4D24DD00ABFF74 /* String-Extension.swift in Sources */,
 				F173E9A02C4D79B700BBA06E /* UIViewController-Extension.swift in Sources */,
 				F1CBE8B22C4C08DF00983EE8 /* AppAPI.swift in Sources */,
+				F1D2C2BF2C4E782B00F96A25 /* RankingTableViewCell.swift in Sources */,
 				F1CBE8B92C4C0A5600983EE8 /* View.swift in Sources */,
 				F1CBE8BA2C4C0A5600983EE8 /* Model.swift in Sources */,
 				F1CBE8BB2C4C0A5600983EE8 /* APIManager.swift in Sources */,
