@@ -19,4 +19,10 @@ extension MainPageView {
         detailVC.modalPresentationStyle = .pageSheet
         present(detailVC, animated: true, completion: nil)
     }
+    
+    func openShareSheet(shareContent: [Any]) {
+        let activityViewController = UIActivityViewController(activityItems: shareContent, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        present(activityViewController, animated: true, completion: nil)
+    }
 }

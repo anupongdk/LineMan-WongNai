@@ -30,6 +30,13 @@ class MainPageViewModel {
         }
     }
     
+    func isMatchInviteFriend(index: Int) -> Bool {
+        if isSearching {
+            return false
+        }
+        return isPowIndex(index: index)
+    }
+    
 
     func coin(at index: Int) -> Coin {
         return coins[index]

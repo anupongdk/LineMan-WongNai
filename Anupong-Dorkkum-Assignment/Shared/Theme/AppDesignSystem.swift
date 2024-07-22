@@ -50,6 +50,8 @@ import Foundation
              
              // app Not found title = #333333;
              static let appNotFoundTitleColor = UIColor(hex: "#333333")
+         
+         static let appInviteFriendCardBg = UIColor(hex: "#C5E6FF")
          }
     
 }

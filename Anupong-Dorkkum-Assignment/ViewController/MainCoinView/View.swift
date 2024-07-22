@@ -34,6 +34,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(MainCoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        tableView.register(UINib(nibName: "MainInviteTableViewCell", bundle: nil), forCellReuseIdentifier: "InviteFriendCell")
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -152,9 +153,10 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
             } else {
                 // Adjust index to get the correct coin data
                 let adjustedIndex = viewModel.adjustedIndex(for: index)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! MainCoinTableViewCell
                 let coin = viewModel.coin(at: adjustedIndex)
                 // Configure your CoinCell with coin data
+                cell.configure(with: coin)
                 return cell
             }
     }
@@ -162,13 +164,22 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let coin = viewModel.coin(at: indexPath.row)
-        navigateToDetail(uuid: coin.uuid)
+        if viewModel.isMatchInviteFriend(index: indexPath.row) {
+            // Navigate to invite friend page
+            
+            openShareSheet(shareContent: ["Invite For Coin Ranking App", "https://coinranking.com/ios"])
+        }else {
+            let adjustedIndex = viewModel.adjustedIndex(for: indexPath.row)
+            let coin = viewModel.coin(at: adjustedIndex)
+            navigateToDetail(uuid: coin.uuid)
+        }
+        
+       
         
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.numberOfCoins - 1 { // Last cell
+        if indexPath.row == viewModel.getNumberOfShowCoins() - 1 { // Last cell
             viewModel.fetchCoins() // Fetch more coins
         }
     }
