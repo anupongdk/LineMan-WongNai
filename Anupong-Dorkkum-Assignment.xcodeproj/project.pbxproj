@@ -24,6 +24,11 @@
 		F173E99E2C4D6BB900BBA06E /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F173E99D2C4D6BB900BBA06E /* DetailView.xib */; };
 		F173E9A02C4D79B700BBA06E /* UIViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173E99F2C4D79B700BBA06E /* UIViewController-Extension.swift */; };
 		F173E9A22C4E12D500BBA06E /* MainPageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173E9A12C4E12D500BBA06E /* MainPageViewModelTest.swift */; };
+		F173E9A52C4E149000BBA06E /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = F173E9A42C4E149000BBA06E /* OHHTTPStubs */; };
+		F173E9A72C4E149000BBA06E /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F173E9A62C4E149000BBA06E /* OHHTTPStubsSwift */; };
+		F173E9AA2C4E15CE00BBA06E /* MockCoinResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F173E9A92C4E15CE00BBA06E /* MockCoinResponse.json */; };
+		F173E9B02C4E16A600BBA06E /* MockCoinSearchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F173E9AF2C4E16A600BBA06E /* MockCoinSearchResponse.json */; };
+		F173E9B42C4E16DB00BBA06E /* MockCoinDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F173E9B32C4E16DB00BBA06E /* MockCoinDetailResponse.json */; };
 		F1CBE8742C4C075100983EE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8732C4C075100983EE8 /* AppDelegate.swift */; };
 		F1CBE8762C4C075100983EE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */; };
 		F1CBE8782C4C075100983EE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8772C4C075100983EE8 /* ViewController.swift */; };
@@ -81,6 +86,9 @@
 		F173E99D2C4D6BB900BBA06E /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		F173E99F2C4D79B700BBA06E /* UIViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extension.swift"; sourceTree = "<group>"; };
 		F173E9A12C4E12D500BBA06E /* MainPageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModelTest.swift; sourceTree = "<group>"; };
+		F173E9A92C4E15CE00BBA06E /* MockCoinResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockCoinResponse.json; sourceTree = "<group>"; };
+		F173E9AF2C4E16A600BBA06E /* MockCoinSearchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockCoinSearchResponse.json; sourceTree = "<group>"; };
+		F173E9B32C4E16DB00BBA06E /* MockCoinDetailResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockCoinDetailResponse.json; sourceTree = "<group>"; };
 		F1CBE8702C4C075100983EE8 /* Anupong-Dorkkum-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anupong-Dorkkum-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CBE8732C4C075100983EE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CBE8752C4C075100983EE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F173E9A52C4E149000BBA06E /* OHHTTPStubs in Frameworks */,
+				F173E9A72C4E149000BBA06E /* OHHTTPStubsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +169,16 @@
 				F173E99D2C4D6BB900BBA06E /* DetailView.xib */,
 			);
 			path = DetailCoinView;
+			sourceTree = "<group>";
+		};
+		F173E9A82C4E14A900BBA06E /* MockJson */ = {
+			isa = PBXGroup;
+			children = (
+				F173E9A92C4E15CE00BBA06E /* MockCoinResponse.json */,
+				F173E9B32C4E16DB00BBA06E /* MockCoinDetailResponse.json */,
+				F173E9AF2C4E16A600BBA06E /* MockCoinSearchResponse.json */,
+			);
+			path = MockJson;
 			sourceTree = "<group>";
 		};
 		F1CBE8672C4C075100983EE8 = {
@@ -200,6 +220,7 @@
 		F1CBE8892C4C075300983EE8 /* Anupong-Dorkkum-AssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				F173E9A82C4E14A900BBA06E /* MockJson */,
 				F1CBE88A2C4C075300983EE8 /* Anupong_Dorkkum_AssignmentTests.swift */,
 				F173E9A12C4E12D500BBA06E /* MainPageViewModelTest.swift */,
 			);
@@ -344,6 +365,10 @@
 				F1CBE8882C4C075300983EE8 /* PBXTargetDependency */,
 			);
 			name = "Anupong-Dorkkum-AssignmentTests";
+			packageProductDependencies = (
+				F173E9A42C4E149000BBA06E /* OHHTTPStubs */,
+				F173E9A62C4E149000BBA06E /* OHHTTPStubsSwift */,
+			);
 			productName = "Anupong-Dorkkum-AssignmentTests";
 			productReference = F1CBE8862C4C075300983EE8 /* Anupong-Dorkkum-AssignmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -402,6 +427,7 @@
 				F1CBE8A32C4C07F500983EE8 /* XCRemoteSwiftPackageReference "Moya" */,
 				F10554AF2C4D02D300ABFF74 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				F10554B62C4D1F0B00ABFF74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				F173E9A32C4E149000BBA06E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			productRefGroup = F1CBE8712C4C075100983EE8 /* Products */;
 			projectDirPath = "";
@@ -431,6 +457,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F173E9B42C4E16DB00BBA06E /* MockCoinDetailResponse.json in Resources */,
+				F173E9AA2C4E15CE00BBA06E /* MockCoinResponse.json in Resources */,
+				F173E9B02C4E16A600BBA06E /* MockCoinSearchResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +860,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		F173E9A32C4E149000BBA06E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
 		F1CBE8A32C4C07F500983EE8 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -856,6 +893,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F10554B62C4D1F0B00ABFF74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
 			productName = SDWebImageSVGCoder;
+		};
+		F173E9A42C4E149000BBA06E /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F173E9A32C4E149000BBA06E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		F173E9A62C4E149000BBA06E /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F173E9A32C4E149000BBA06E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
 		};
 		F1CBE8A42C4C07F500983EE8 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum CoinAPI {
-    case getCoins
+    case getCoins(limit: Int, offset: Int)
     case search(keyword: String)
     case coinDetail(uuid: String)
 }
@@ -37,18 +37,16 @@ extension CoinAPI: TargetType {
 
     var task: Task {
         switch self {
-        case .getCoins, .coinDetail:
-            return .requestPlain
+        case .getCoins(let limit, let offset):
+            return .requestParameters(parameters: ["limit": limit, "offset": offset], encoding: URLEncoding.queryString)
         case .search(let keyword):
             return .requestParameters(parameters: ["search": keyword], encoding: URLEncoding.queryString)
+        case .coinDetail:
+            return .requestPlain
         }
     }
 
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
-    }
-
-    var sampleData: Data {
-        return Data()
+        return ["Content-type": "application/json"]
     }
 }

@@ -1,0 +1,80 @@
+//
+//  MockCoinDetailResponse.json
+//  Anupong-Dorkkum-AssignmentTests
+//
+//  Created by gone on 22/7/2567 BE.
+//
+
+
+{
+"status": "success",
+"data": {
+"coin": {
+"uuid": "yhjMzLPhuIDl",
+"symbol": "USD",
+"name": "US Dollar",
+"description": null,
+"color": "#0454b4",
+"iconUrl": "https://cdn.coinranking.com/FNwFOF8tV/us.svg",
+"websiteUrl": null,
+"links": [],
+"supply": {
+"confirmed": false,
+"supplyAt": null,
+"max": null,
+"total": "11976500.87",
+"circulating": "11976500.87"
+},
+"numberOfMarkets": 2023,
+"numberOfExchanges": 27,
+"24hVolume": "5459109705",
+"marketCap": "11976501",
+"fullyDilutedMarketCap": "11976501",
+"price": "1",
+"btcPrice": "0.000014716589567768",
+"priceAt": 1721622360,
+"change": "0.00",
+"rank": null,
+"sparkline": [
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+null
+],
+"allTimeHigh": {
+"price": "1.0052924824988467",
+"timestamp": 1615939200
+},
+"coinrankingUrl": "https://coinranking.com/coin/yhjMzLPhuIDl+usdollar-usd",
+"tier": null,
+"lowVolume": false,
+"listedAt": 1330214400,
+"hasContent": false,
+"notices": null,
+"contractAddresses": [],
+"tags": [
+"altcoin"
+]
+}
+}
+}

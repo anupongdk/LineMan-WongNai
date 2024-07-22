@@ -6,7 +6,7 @@ import Foundation
 class MainPageViewModel {
     private let apiManager = MainPageAPIManager()
     private var coins: [Coin] = []
-    private var currentPage = 0
+    private let limitedCoinPerPage = 10
     private var isLoading = false
 
     var onCoinsUpdated: (() -> Void)?
@@ -23,7 +23,7 @@ class MainPageViewModel {
     func fetchCoins() {
         guard !isLoading else { return }
         isLoading = true
-        apiManager.getCoins { [weak self] result in
+        apiManager.getCoins(limit: limitedCoinPerPage, offset: numberOfCoins) { [weak self] result in
             self?.isLoading = false
             switch result {
             case .success(let response):
