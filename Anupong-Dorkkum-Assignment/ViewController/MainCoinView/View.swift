@@ -4,6 +4,8 @@
 import UIKit
 
 class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    private var refreshControl = UIRefreshControl()
     private var viewModel = MainPageViewModel()
     private let searchBar = UISearchBar()
     private let tableView = UITableView()
@@ -14,13 +16,11 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         setupUI()
         bindViewModel()
         viewModel.fetchCoins()
+        setupRefreshControl()
     }
 
     // MARK: UI Setup
     private func setupUI() {
-        
-        
-        
         searchBar.delegate = self
         view.addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +57,23 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         errorView?.configure(with: "Sorry", description: "No result match this keyword")
         errorView?.isHidden = true
     }
+    
+    // MARK: Refresh
+    private func setupRefreshControl() {
+            refreshControl.tintColor = .blue // Customize the tint color
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attributes) // Customize the title
+
+            refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+            tableView.refreshControl = refreshControl
+        }
+
+        @objc private func refreshData() {
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+            viewModel.resetData()
+            viewModel.fetchCoins()
+        }
 
     // MARK: ViewModel Binding
     private func bindViewModel() {
@@ -64,11 +81,13 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         viewModel.onCoinsUpdated = { [weak self] in
             self?.errorView?.isHidden = true
             self?.tableView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
         viewModel.onError = {[weak self] error in
             // create popup show error
             self?.showError(error)
             print("Error: \(error)")
+            self?.refreshControl.endRefreshing()
         }
         
         viewModel.onSearchError = { [weak self] in
@@ -77,6 +96,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
             self?.tableView.reloadData()
             // add errorView in tableView
             self?.errorView?.isHidden = false
+            self?.refreshControl.endRefreshing()
             
         }
     }
@@ -148,10 +168,7 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
 
 extension MainPageView:ErrorViewDelegate {
     func didTapButton() {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        viewModel.resetData()
-        viewModel.fetchCoins()
+       //
     }
 
 }
