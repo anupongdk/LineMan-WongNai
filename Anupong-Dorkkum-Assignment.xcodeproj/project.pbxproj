@@ -273,8 +273,8 @@
 		F1CBE8B32C4C094D00983EE8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F10554BD2C4D539600ABFF74 /* DetailCoinView */,
 				F1CBE8B42C4C097000983EE8 /* MainCoinView */,
+				F10554BD2C4D539600ABFF74 /* DetailCoinView */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
