@@ -21,6 +21,7 @@ class DetailView: UIViewController {
     @IBOutlet weak var lblCoinMarketCap: UILabel!
     @IBOutlet weak var lblCoinMarketCapValue: UILabel!
     @IBOutlet weak var tvCoinDetail: UITextView!
+    @IBOutlet weak var btnGotoWeb: UIButton!
     
     
     
@@ -60,6 +61,10 @@ class DetailView: UIViewController {
         case .loading:
             break
         case .loaded:
+            //static Ui
+            lblCoinPrice.text = "PRICE"
+            lblCoinMarketCap.text = "MARKET CAP"
+            
             // Update the UI here
             lblCoinName.text = viewModel.detailData?.name
             lblCoinName.textColor = UIColor.init(hex: viewModel.detailData?.color ?? "")
@@ -83,6 +88,7 @@ class DetailView: UIViewController {
         // Add the close button to the view
         view.addSubview(closeButton)
         
+        closeButton.setButton(type: .closeButton)
         // Set constraints for the close button
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -106,11 +112,14 @@ class DetailView: UIViewController {
         
         lblCoinName.text = ""
         lblCoinSymbol.text = ""
-        lblCoinPrice.text = "PRICE"
+        lblCoinPrice.text = ""
         lblCoinPriceValue.text = ""
-        lblCoinMarketCap.text = "MARKET CAP"
+        lblCoinMarketCap.text = ""
         lblCoinMarketCapValue.text = ""
         tvCoinDetail.text = ""
+        
+        btnGotoWeb.setButton(type: .gotoWebsite)
+        btnGotoWeb.setTitle("GO TO WEBSITE", for: .normal)
         
         
         
@@ -121,6 +130,9 @@ class DetailView: UIViewController {
     
     @objc private func closeButtonTapped() {
         navigeteBack()
+    }
+    @IBAction func gotoWebSite(_ sender: Any) {
+        navigateToWebsite(url: viewModel.detailData?.websiteURL ?? "")
     }
 }
 
