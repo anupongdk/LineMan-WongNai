@@ -55,7 +55,7 @@ class ArrowLabelView: UIView {
     }
     
     func updateView(with value: Double) {
-        if value < 0 {
+         if value < 0 {
             imageView.image = UIImage(named: "icArrowDown")
             label.setLabel(type: .cellRateDown)
         } else {
@@ -63,5 +63,12 @@ class ArrowLabelView: UIView {
             label.setLabel(type: .cellRateUp)
         }
         label.text = abs(value).formatted()
+        toggleVisibility(for: value)
+    }
+    
+    private func toggleVisibility(for value: Double) {
+        let isHidden = value == 0
+        imageView.isHidden = isHidden
+        label.isHidden = isHidden
     }
 }

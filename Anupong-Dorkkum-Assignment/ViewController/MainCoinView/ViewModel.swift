@@ -11,6 +11,7 @@ class MainPageViewModel {
 
     var onCoinsUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
+    var onSearchError: (() -> Void)?
 
     var numberOfCoins: Int {
         return coins.count
@@ -41,8 +42,8 @@ class MainPageViewModel {
     }
 
     func searchCoins(keyword: String) {
-        guard !isLoading else { return }
-        isLoading = true
+        apiManager.cancelAllRequests()
+        
         apiManager.searchCoins(keyword: keyword) { [weak self] result in
             self?.isLoading = false
             switch result {
@@ -52,15 +53,15 @@ class MainPageViewModel {
                     self?.coins = coinResponse.data.coins
                     self?.onCoinsUpdated?()
                 } catch let error {
-                    self?.onError?(error)
+                    self?.coins.removeAll()
+                    self?.onSearchError?()
                 }
             case .failure(let error):
-                self?.onError?(error)
+                self?.onSearchError?()
             }
         }
     }
     
-    // function calculate index is match for position 5, 10, 20, 40, 80, 160, ...
     func isPowIndex(index: Int) -> Bool {
         var position = 5
         while position <= index {

@@ -28,17 +28,19 @@ struct CoinData: Decodable {
 
 // MARK: - Coin
 struct Coin: Codable {
-    let uuid, symbol, name, color: String
+    let uuid, symbol, name: String
     let iconURL: String
-    let marketCap, price: String
-    let listedAt, tier: Int
-    let change: String
+    let marketCap, price, change: String?
+    let listedAt:Int?
+    let tier: Int
     let rank: Int
     let sparkline: [String?]
-    let lowVolume: Bool
+    let lowVolume: Bool?
     let coinrankingURL: String
-    let the24HVolume, btcPrice: String
+    let the24HVolume, btcPrice, color: String?
     let contractAddresses: [String]
+    
+    
 
     enum CodingKeys: String, CodingKey {
         case uuid, symbol, name, color

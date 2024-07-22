@@ -123,8 +123,8 @@ class MainCoinTableViewCell: UITableViewCell {
         iconImageView.sd_setImage(with: URL(string: coin.iconURL),placeholderImage:UIImage.DesignSystem.placeHolder )
         titleLabel.text = coin.name
         coinNameLabel.text = coin.symbol
-        coinPriceLabel.text = coin.price.currencyFormat()
-        arrowLabelView.updateView(with: Double(coin.change) ?? 0)
+        coinPriceLabel.text = coin.price?.currencyFormat()
+        arrowLabelView.updateView(with: Double(coin.change ?? "0") ?? 0)
         
         
         }

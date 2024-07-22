@@ -51,6 +51,11 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
             self?.showError(error)
             print("Error: \(error)")
         }
+        
+        viewModel.onSearchError = { [weak self] in
+            // create popup show error
+            self?.tableView.reloadData()
+        }
     }
     
     // create function show error
