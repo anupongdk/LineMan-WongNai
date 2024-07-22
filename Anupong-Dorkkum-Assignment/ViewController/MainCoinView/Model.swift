@@ -17,7 +17,7 @@ struct MainPageModel {
 
 struct CoinResponse: Decodable {
     let status: String
-    let data: CoinData
+    let data: CoinData?
 }
 
 struct CoinData: Decodable {

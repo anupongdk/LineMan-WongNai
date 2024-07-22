@@ -56,7 +56,7 @@ class MainPageViewModel {
             case .success(let response):
                 do {
                     let coinResponse = try JSONDecoder().decode(CoinResponse.self, from: response.data)
-                    self?.coins.append(contentsOf: coinResponse.data.coins)
+                    self?.coins.append(contentsOf: coinResponse.data?.coins ?? [])
                     self?.onCoinsUpdated?()
                 } catch let error {
                     self?.onError?(error)
@@ -70,19 +70,25 @@ class MainPageViewModel {
     func searchCoins(keyword: String) {
         apiManager.cancelAllRequests()
         isSearching = true
-        apiManager.searchCoins(keyword: keyword) { [weak self] result in
+        apiManager.searchCoins(keyword: keyword.lowercased()) { [weak self] result in
             self?.isLoading = false
             switch result {
             case .success(let response):
                 do {
                     let coinResponse = try JSONDecoder().decode(CoinResponse.self, from: response.data)
-                    self?.coins = coinResponse.data.coins
-                    self?.onCoinsUpdated?()
-                } catch let error {
+                    self?.coins = coinResponse.data?.coins ?? []
+                    
+                    if self?.numberOfCoins == 0 {
+                        self?.onSearchError?()
+                    }else {
+                        self?.onCoinsUpdated?()
+                    }
+                   
+                } catch  _ {
                     self?.coins.removeAll()
                     self?.onSearchError?()
                 }
-            case .failure(let error):
+            case .failure( _ ):
                 self?.coins.removeAll()
                 self?.onSearchError?()
             }

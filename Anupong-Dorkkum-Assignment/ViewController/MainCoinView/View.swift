@@ -134,6 +134,16 @@ class MainPageView: UIViewController, UISearchBarDelegate, UITableViewDelegate, 
         viewModel.fetchCoins()
         return true
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewHeader = TableHeaderView()
+        viewHeader.setUpView(title: "Buy, sell and hold crypto")
+        return viewHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

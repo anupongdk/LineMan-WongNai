@@ -56,6 +56,7 @@
 		F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */; };
 		F1D2C2B92C4E608E00F96A25 /* MainInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */; };
 		F1D2C2BA2C4E608E00F96A25 /* MainInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */; };
+		F1D2C2BC2C4E72EB00F96A25 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		F1CBE8C72C4C2DCF00983EE8 /* Data-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-Extension.swift"; sourceTree = "<group>"; };
 		F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInviteTableViewCell.swift; sourceTree = "<group>"; };
 		F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainInviteTableViewCell.xib; sourceTree = "<group>"; };
+		F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				F173E9B72C4E383400BBA06E /* ErrorView.swift */,
 				F1D2C2B72C4E608E00F96A25 /* MainInviteTableViewCell.swift */,
 				F1D2C2B82C4E608E00F96A25 /* MainInviteTableViewCell.xib */,
+				F1D2C2BB2C4E72EB00F96A25 /* TableHeader.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				F173E9922C4D5FFF00BBA06E /* DetailView.swift in Sources */,
 				F10554BC2C4D297700ABFF74 /* ArrowLabelView.swift in Sources */,
 				F173E9942C4D600800BBA06E /* DetailModel.swift in Sources */,
+				F1D2C2BC2C4E72EB00F96A25 /* TableHeader.swift in Sources */,
 				F1CBE8C82C4C2DCF00983EE8 /* Data-Extension.swift in Sources */,
 				F10554B52C4D188B00ABFF74 /* Double-Extension.swift in Sources */,
 			);
